@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-// const expressStaticGzip = require('compression');
-// const path = require('path');
 const { getSherdogURL } = require('./get/getSherdogURL');
 const { getFighterData } = require('./get/getFighterData');
 const routeUrls = require('./routes');
@@ -17,12 +15,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/', routeUrls);
-
-// app.get('*', expressStaticGzip(path.join(__dirname), {
-//   urlContains: 'static/',
-//   fallthrough: false,
-//   enableBrotli: true,
-// }));
 
 const api = async (fighter, callback) => {
   try {

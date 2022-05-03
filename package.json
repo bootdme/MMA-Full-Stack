@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite client/",
+    "build": "vite build client/ --watch",
+    "preview": "vite preview client/",
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
