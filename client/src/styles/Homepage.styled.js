@@ -7,4 +7,7 @@ export const HomepageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  .options {
+    display: flex;
+  }
 `;
