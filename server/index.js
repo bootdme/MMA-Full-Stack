@@ -29,7 +29,7 @@ const api = async (fighter, callback) => {
   }
 };
 
-const mma = api('Usman');
+// const mma = api('Usman');
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
