@@ -22,10 +22,16 @@ const MMASchema = new mongoose.Schema({
   style: String,
   imageUrl: String,
   wins: {
-    knockouts: Number, submissions: Number, decisions: Number, others: Number,
+    knockouts: Number,
+    submissions: Number,
+    decisions: Number,
+    others: Number,
   },
   losses: {
-    knockouts: Number, submissions: Number, decisions: Number, others: Number,
+    knockouts: Number,
+    submissions: Number,
+    decisions: Number,
+    others: Number,
   },
   noContests: Number,
   fights: [

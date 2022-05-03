@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'import/prefer-default-export': 'off',
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
   },
 };
