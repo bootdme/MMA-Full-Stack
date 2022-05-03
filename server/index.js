@@ -14,6 +14,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
 app.use('/', routeUrls);
 
 const api = async (fighter, callback) => {
@@ -29,7 +30,7 @@ const api = async (fighter, callback) => {
   }
 };
 
-const mma = api('Dustin');
+// const mma = api('Dustin');
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
