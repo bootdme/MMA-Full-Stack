@@ -63,12 +63,18 @@ module.exports.getFighterData = async (url) => {
     fighter.url = url;
     const fighterInfo = $('.fighter-info');
     fighter.name = fighterInfo.find('[itemprop="name"]>.fn').text();
-    fighter.nickname = fighterInfo.find('[itemprop="name"]>.nickname').text() || 'null';
+    fighter.nickname =
+      fighterInfo.find('[itemprop="name"]>.nickname').text() || 'null';
     fighter.imageUrl = fighterInfo.find('img.profile-image.photo').attr('src');
-    fighter.age = fighterInfo.find('[itemprop="birthDate"]').prevAll('b').text();
+    fighter.age = fighterInfo
+      .find('[itemprop="birthDate"]')
+      .prevAll('b')
+      .text();
     fighter.birthday = fighterInfo.find('[itemprop="birthDate"]').text();
     fighter.locality = fighterInfo.find('[itemprop="addressLocality"]').text();
-    fighter.nationality = fighterInfo.find('strong[itemprop="nationality"]').text();
+    fighter.nationality = fighterInfo
+      .find('strong[itemprop="nationality"]')
+      .text();
     fighter.height = fighterInfo.find('[itemprop="height"]').parent().text();
     fighter.weight = fighterInfo.find('[itemprop="weight"]').parent().text();
     fighter.association = [];
@@ -99,7 +105,10 @@ module.exports.getFighterData = async (url) => {
 
     /* Fighter no contests */
     const fighterNoContest = $('.nc');
-    const noContests = parseInt(fighterNoContest.find('span:nth-child(2)').text(), 10);
+    const noContests = parseInt(
+      fighterNoContest.find('span:nth-child(2)').text(),
+      10
+    );
     fighter.noContests = noContests || 0;
 
     /* Fighter fight information */
@@ -112,9 +121,15 @@ module.exports.getFighterData = async (url) => {
       const eventName = item.find('td:nth-child(3) a').text();
       const eventUrl = item.find('td:nth-child(3) a').attr('href');
       const eventDate = item.find('td:nth-child(3) .sub_line').text();
-      const method = `${item.find('td:nth-child(4)').text().split(/\)(.*)/)[0]})`;
+      const method = `${
+        item
+          .find('td:nth-child(4)')
+          .text()
+          .split(/\)(.*)/)[0]
+      })`;
       const referee = item.find('td:nth-child(4) .sub_line').text();
-      const refereeUrl = item.find('td:nth-child(4) .sub_line a').attr('href') || 'null';
+      const refereeUrl =
+        item.find('td:nth-child(4) .sub_line a').attr('href') || 'null';
       const round = item.find('td:nth-child(5)').text();
       const time = item.find('td:nth-child(6)').text();
 

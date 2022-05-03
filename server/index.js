@@ -20,7 +20,7 @@ const api = async (fighter, callback) => {
   try {
     const url = await getSherdogURL(fighter);
     const data = await getFighterData(url);
-    if (callback && (typeof callback === 'function')) {
+    if (callback && typeof callback === 'function') {
       callback(data);
     }
     return data;
@@ -29,7 +29,7 @@ const api = async (fighter, callback) => {
   }
 };
 
-// const mma = api('Usman');
+const mma = api('Usman');
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
