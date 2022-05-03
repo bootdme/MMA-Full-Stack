@@ -1,17 +1,21 @@
 import React from 'react';
-import { useRoutes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
+import Fighter from './Fighter';
+import Compare from './Compare';
 
 function App() {
-  // return (
-  //   <Routes>
-  //     <Route path="/" element={<Homepage />} />
-  //   </Routes>
-  // );
-  const routes = useRoutes([
-    { path: '/', element: <Homepage /> }
-  ]);
-  return routes;
+  return (
+    <div className="app-container">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/fighter" element={<Fighter />} />
+          <Route path="/compare" element={<Compare />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

@@ -15,6 +15,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     'import/prefer-default-export': 'off',
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
   },
