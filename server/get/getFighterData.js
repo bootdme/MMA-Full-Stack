@@ -151,7 +151,6 @@ module.exports.getFighterData = async (url) => {
         fighter.fights.push(fight);
       }
     });
-    console.log(fighter);
     return fighter;
   } catch (err) {
     console.error(err);

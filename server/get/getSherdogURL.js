@@ -11,6 +11,7 @@ module.exports.getSherdogURL = async (fighter) => {
       return resultLink[0].link;
     }
   } catch (err) {
+    console.log(123123123);
     console.error(err);
   }
 };
