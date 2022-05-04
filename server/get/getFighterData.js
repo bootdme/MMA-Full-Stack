@@ -153,6 +153,6 @@ module.exports.getFighterData = async (url) => {
     });
     return fighter;
   } catch (err) {
-    console.error(err);
+    return err;
   }
 };

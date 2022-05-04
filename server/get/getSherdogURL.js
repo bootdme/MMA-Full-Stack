@@ -7,11 +7,10 @@ module.exports.getSherdogURL = async (fighter) => {
       limit: 1,
       query: `${fighter} sherdog`,
     });
-    if (resultLink[0].link.indexOf('sherdog.com/fighter') > -1) {
+    if (resultLink[0].link.slice(0, 31) === 'https://www.sherdog.com/fighter') {
       return resultLink[0].link;
     }
   } catch (err) {
-    console.log(123123123);
-    console.error(err);
+    return err;
   }
 };
