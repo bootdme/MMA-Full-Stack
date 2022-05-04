@@ -14,7 +14,6 @@ const fighter = {
   weight: '',
   weightClass: '',
   style: '',
-  imageUrl: '',
   wins: {
     total: 0,
     knockouts: 0,
@@ -31,33 +30,13 @@ const fighter = {
   },
   noContests: 0,
   fights: [],
-};
-
-const initFighter = () => {
-  fighter.url = '';
-  fighter.name = '';
-  fighter.nickname = '';
-  fighter.age = '';
-  fighter.birthday = '';
-  fighter.locality = '';
-  fighter.nationality = '';
-  fighter.association = '';
-  fighter.height = '';
-  fighter.weight = '';
-  fighter.weightClass = '';
-  fighter.style = '';
-  fighter.imageUrl = '';
-  fighter.wins = {};
-  fighter.losses = {};
-  fighter.noContests = {};
-  fighter.fights = {};
+  imageUrl: '',
 };
 
 module.exports.getFighterData = async (url) => {
   try {
     const html = await axios.get(url);
     const $ = await cheerio.load(html.data);
-    initFighter();
 
     /* Fighter information from the fighter-info div on Sherdog */
     fighter.url = url;
