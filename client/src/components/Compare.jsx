@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Compare() {
-  return <div>Inside Compare Component</div>;
+  return <div>To Be Made. Maybe Not</div>;
 }
 
 export default Compare;

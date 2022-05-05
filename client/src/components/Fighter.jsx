@@ -5,18 +5,35 @@ import { FighterOuter, FighterWrapper } from '../styles/Fighter.styled';
 function Fighter() {
   const [addFighter, setAddFighter] = useState('');
   const [fighterData, setFighterData] = useState([]);
+  const [updateState, setUpdateState] = useState(0);
+
+  function getFighters() {
+    axios
+      .get('http://localhost:8008/fighter')
+      .then((res) => {
+        setFighterData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function postFighter(e) {
     e.preventDefault();
     axios
       .post('http://localhost:8008/fighter', { fighter: addFighter })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        setUpdateState(updateState + 1);
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
+  useEffect(() => {
+    getFighters();
+  }, [updateState]);
 
   return (
     <div className="fighter-container">
@@ -35,6 +52,9 @@ function Fighter() {
           </form>
         </FighterWrapper>
       </FighterOuter>
+      {fighterData.map((fighter, index) => (
+        <div>{fighter.name}</div>
+      ))}
     </div>
   );
 }

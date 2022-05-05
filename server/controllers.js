@@ -16,6 +16,14 @@ const api = async (fighter) => {
 };
 
 module.exports = {
+  getAll: async (req, res) => {
+    try {
+      const data = await models.getAll();
+      res.status(202).send(data);
+    } catch (err) {
+      res.status(404).send('Nothing in database');
+    }
+  },
   addFighter: async (req, res) => {
     try {
       const mma = await api(req.body.fighter);
