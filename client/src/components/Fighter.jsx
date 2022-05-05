@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import FighterList from './FighterList';
 import axios from 'axios';
-import { FighterOuter, FighterWrapper } from '../styles/Fighter.styled';
 
 function Fighter() {
   const [addFighter, setAddFighter] = useState('');
@@ -36,25 +36,31 @@ function Fighter() {
   }, [updateState]);
 
   return (
-    <div className="fighter-container">
-      <FighterOuter>
-        <FighterWrapper>
+    <div className="fighter-container flex-row">
+      <div className="flex justify-center">
+        <div className="flex flex-col w-46.875 items-center justify-center">
           <header className="add-fighter">Add Fighter</header>
-          <form>
-            <input
-              type="text"
-              value={addFighter}
-              onChange={(e) => setAddFighter(e.target.value)}
-            />
-            <button type="submit" onClick={postFighter}>
-              Add
-            </button>
+          <form className="w-full max-w-sm">
+            <div className="flex items-center border-b border-teal-500 py-2">
+              <input
+                className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                type="text"
+                placeholder="Name or Nickname"
+                value={addFighter}
+                onChange={(e) => setAddFighter(e.target.value)}
+              />
+              <button
+                className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                type="button"
+                onClick={postFighter}
+              >
+                Add
+              </button>
+            </div>
           </form>
-        </FighterWrapper>
-      </FighterOuter>
-      {fighterData.map((fighter, index) => (
-        <div>{fighter.name}</div>
-      ))}
+        </div>
+      </div>
+      <FighterList fighters={fighterData} />
     </div>
   );
 }

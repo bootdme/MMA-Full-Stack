@@ -19,6 +19,6 @@ module.exports = {
         losses: 1,
         noContests: 1,
       }
-    ),
+    ).sort([['_id', -1]]),
   addFighter: (fighter) => MMA.create(fighter),
 };
